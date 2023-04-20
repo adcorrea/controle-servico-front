@@ -25,3 +25,37 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Comandos angular
+
+no PS (Power Shell), o comando ng deve ser feito com npx antecedendo.
+
+npx ng version (versão do angular)
+
+
+cria o projeto angular
+
+ng new controle-servico-front
+
+inicia o projeto. O --Open ja abre a aplicação no navegador 
+
+ng serve --open
+
+cria um componente
+
+ng g c helloWorld
+
+cria um modulo
+
+ng g m clientes
+
+
+Fontes Awesome
+
+https://fontawesome.com/start
+
+
+SB admin
+
+https://startbootstrap.com/template/sb-admin
