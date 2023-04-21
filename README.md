@@ -50,6 +50,10 @@ cria um modulo
 
 ng g m clientes
 
+cria um modulo com routing
+
+ng g m clientes --routing
+
 
 Fontes Awesome
 
