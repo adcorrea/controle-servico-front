@@ -50,7 +50,21 @@ export class ClientesFormComponent implements OnInit{
   onSubmit(): void{
     //console.log(this.cliente);
 
-    this.clienteService
+    if(this.cliente.id){
+      this.clienteService
+      .atualizar(this.cliente)
+      .subscribe(response => {
+        this.success = true;
+        this.errors = [];
+       // this.cliente = response;
+      },
+      errorResponse =>{
+        this.errors = errorResponse.error.errors;
+        this.success = false;
+      });
+    }
+    else{
+      this.clienteService
           .salvar(this.cliente)
           .subscribe(response => {
             this.success = true;
@@ -61,6 +75,9 @@ export class ClientesFormComponent implements OnInit{
             this.errors = errorResponse.error.errors;
             this.success = false;
           });
+    }
+
+    
   }
 
 
