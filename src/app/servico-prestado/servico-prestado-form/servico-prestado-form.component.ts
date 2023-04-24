@@ -35,7 +35,7 @@ export class ServicoPrestadoFormComponent implements OnInit{
       .subscribe(response => {
         this.success = true;
         this.errors = [];
-        this.servico = response;
+        this.servico = new ServicoPrestado();        
       },
       errorResponse =>{
         this.errors = errorResponse.error.errors;
