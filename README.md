@@ -58,6 +58,14 @@ cria um serviço
 
 ng g s clientes
 
+cria um interceptador
+
+ng g interceptor token
+
+cria um guard (usar canActivated)
+
+ng g guard auth
+
 
 Fontes Awesome
 
@@ -67,3 +75,8 @@ https://fontawesome.com/start
 SB admin
 
 https://startbootstrap.com/template/sb-admin
+
+
+## NPMs
+
+npm install --save @auth0/angular-jwt

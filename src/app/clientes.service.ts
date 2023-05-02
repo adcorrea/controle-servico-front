@@ -13,9 +13,22 @@ import { environment } from 'src/environments/environment';
 export class ClientesService {
 
   apiUrl: string = environment.apiUrlBase + '/api/clientes';
+  headers: any ;
 
   constructor(private http : HttpClient) {
+      this.headers = this.getHeaders;
+   }
 
+   private getHeaders(): any{
+      const tokenString = localStorage.getItem('access_token');
+      
+      if(tokenString){
+        const token = JSON.parse(tokenString.toString());
+        const headers = {
+          'Authorization' : 'Bearer ' + token.access_token
+        }
+        return headers;
+      }
    }
 
 

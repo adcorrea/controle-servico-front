@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
@@ -9,7 +9,7 @@ import { Usuario } from './usuario';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   username: string;
   password: string;
@@ -19,7 +19,13 @@ export class LoginComponent {
   errors: string[];
 
   constructor(private router: Router, private authService: AuthService){
+         
+  }
 
+  ngOnInit(): void {
+     if(this.authService.isAuthenticated()){
+        this.router.navigate(['/home']);
+      }  
   }
 
   onSubmit(): void{
@@ -28,6 +34,8 @@ export class LoginComponent {
                   .subscribe(
                     response =>{
                       this.errors = [];
+                      const accessToken = JSON.stringify(response);
+                      localStorage.setItem('access_token', accessToken);
                       this.router.navigate(['/home']);                      
                     },
                     errorResponse => {
